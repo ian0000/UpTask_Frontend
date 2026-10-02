@@ -1,74 +1,63 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# UpTask · Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Proyecto de curso y práctica · React + TypeScript**
 
-Currently, two official plugins are available:
+Interfaz de una aplicación de gestión de proyectos y tareas. Complementa la [API UpTask](https://github.com/ian0000/Uptask_backend) y sirve como práctica de desarrollo full stack con MERN.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades trabajadas
 
-## Expanding the ESLint configuration
+- Registro, inicio de sesión y recuperación de cuenta.
+- Creación y edición de proyectos.
+- Organización de tareas por estado e interacción de arrastrar y soltar.
+- Gestión de integrantes y notas.
+- Formularios y validación de respuestas de la API.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tecnologías
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React, Vite, TypeScript, React Router, TanStack Query, React Hook Form, Zod, Tailwind CSS y dnd-kit.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Puesta en marcha
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Necesitas Node.js, npm y el backend UpTask configurado. El repositorio no declara una versión exacta de Node.
+
+```sh
+npm ci
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Crea `.env.local` en la raíz:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```dotenv
+VITE_API_URL=http://localhost:4000/api
 ```
-=======
-# UpTask_Frontend
-Front end del proyecto Uptask Mern con TS
->>>>>>> 8e8e37eda72f241c0290263b5999685e255aa947
+
+La URL debe incluir `/api`. Configura `FRONTEND_URL` en el backend con el origen que utilices para Vite.
+
+```sh
+npm run dev
+```
+
+Abre la dirección que indique Vite. Para probar confirmaciones de cuenta y recuperación de contraseña, el backend necesita su configuración de correo.
+
+## Estructura
+
+| Ruta | Contenido |
+| --- | --- |
+| [src/router.tsx](src/router.tsx) | Rutas de la aplicación |
+| [src/views](src/views/) | Pantallas |
+| [src/components](src/components/) | Formularios, tareas, equipo y notas |
+| [src/api](src/api/) | Operaciones contra el backend |
+| [src/lib/axios.ts](src/lib/axios.ts) | Cliente HTTP y token de acceso |
+| [src/types](src/types/) | Contratos y validación |
+
+## Comandos
+
+| Comando | Acción |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run lint` | Revisión con ESLint |
+| `npm run build` | TypeScript y build de Vite |
+| `npm run preview` | Vista previa del build |
+
+No hay un script de tests automatizados declarado. Este repositorio documenta un ejercicio de formación, no una aplicación comercial propia.
+
+[Perfil de Ian K.](https://github.com/ian0000)
